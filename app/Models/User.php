@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
 #[Fillable(['name', 'email', 'password'])]
 #[Hidden(['password', 'remember_token'])]
@@ -46,7 +47,7 @@ class User extends Authenticatable
     }
 
     public function currentTeam() {
-        return $this-teams()->where('id', $this->preferences['default_team_id'] ?? null)->first();
+        return $this->teams()->where('id', $this->preferences['default_team_id'] ?? null)->first();
     }
 
     public function socialAccounts() {
