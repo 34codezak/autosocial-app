@@ -20,7 +20,7 @@ return new class extends Migration
             $table->json('settings')->nullable(); // {timezone, brand_colors, approval_required(for teams)}
             $table->string('plan')->default('free'); // free, pro, agency
             $table->timestamp('trial_ends_at')->nullable();
-            $table->softDelete();
+            $table->softDeletes();
             $table->timestamps();
        });
 

@@ -1,5 +1,7 @@
 <?php 
 
+namespace App\Models;
+
 use App\Models\Traits\EncryptsSocialTokens;
 
 class SocialAccount extends Model {
