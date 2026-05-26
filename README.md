@@ -6,7 +6,6 @@ AutoSocial is a modern social media management platform built to help businesses
 
 Built with Laravel, Livewire, Tailwind CSS, and Alpine.js, AutoSocial provides a seamless real-time experience for managing social media operations from a unified dashboard.
 
----
 
 ## Overview
 
@@ -31,7 +30,6 @@ The platform is designed for:
 * Personal brands
 * Marketing teams
 
----
 
 # Core Features
 
@@ -47,8 +45,6 @@ Manage social media accounts across:
 
 from a centralized dashboard.
 
----
-
 ## Real-Time Analytics Dashboard
 
 Monitor:
@@ -62,8 +58,6 @@ Monitor:
 
 using a live interactive dashboard powered by Livewire polling and dynamic UI updates.
 
----
-
 ## Content Creation & Scheduling
 
 Create and organize:
@@ -76,8 +70,6 @@ Create and organize:
 
 with workflow optimization tools.
 
----
-
 ## Audience Engagement
 
 AutoSocial enables users to:
@@ -89,8 +81,6 @@ AutoSocial enables users to:
 
 to strengthen audience relationships and brand trust.
 
----
-
 ## Smart Automation
 
 Automate repetitive tasks such as:
@@ -100,8 +90,6 @@ Automate repetitive tasks such as:
 * Performance updates
 * Notification systems
 * AI-assisted workflows
-
----
 
 ## Performance Tracking
 
@@ -113,8 +101,6 @@ Track and improve social media strategy through:
 * Platform performance comparisons
 * Growth reporting
 
----
-
 # Technology Stack
 
 ## Backend
@@ -122,22 +108,16 @@ Track and improve social media strategy through:
 * Laravel
 * PHP 8.4+
 
----
-
 ## Frontend
 
 * Livewire
 * Alpine.js
 * Tailwind CSS
 
----
-
 ## Database
 
 * SQLite (development)
 * PostgreSQL (production-ready option)
-
----
 
 ## Additional Tools
 
@@ -147,8 +127,6 @@ Track and improve social media strategy through:
 * Laravel Routing
 * Livewire Polling
 * Dark Mode Support
-
----
 
 # Project Structure
 
@@ -172,8 +150,6 @@ routes/
 ├── auth.php
 ```
 
----
-
 # Installation
 
 ## Clone Repository
@@ -183,9 +159,6 @@ git clone <repository-url>
 
 cd autosocial
 ```
-
----
-
 ## Install Dependencies
 
 ```bash
@@ -193,8 +166,6 @@ composer install
 
 npm install
 ```
-
----
 
 ## Configure Environment
 
@@ -207,8 +178,6 @@ Generate application key:
 ```bash
 php artisan key:generate
 ```
-
----
 
 ## Configure Database
 
@@ -245,9 +214,6 @@ Application will be available at:
 ```txt
 http://127.0.0.1:8000
 ```
-
----
-
 # Authentication
 
 The platform includes authentication features such as:
@@ -259,8 +225,6 @@ The platform includes authentication features such as:
 * Protected dashboards
 
 Built using Laravel authentication and Livewire components.
-
----
 
 # Live Dashboard Architecture
 
@@ -280,8 +244,6 @@ Features include:
 * Recent activity monitoring
 * Interactive UI components
 
----
-
 # UI & Design Philosophy
 
 AutoSocial focuses on:
@@ -294,8 +256,6 @@ AutoSocial focuses on:
 * Dashboard-driven workflows
 * Component reusability
 
----
-
 # Accessibility
 
 The application is designed with accessibility considerations including:
@@ -306,8 +266,6 @@ The application is designed with accessibility considerations including:
 * Semantic HTML structure
 * Screen-reader-friendly components
 * Dark/light mode support
-
----
 
 # Development Goals
 
@@ -323,8 +281,6 @@ The long-term vision of AutoSocial is to evolve into a complete AI-powered socia
 * API integrations
 * Advanced reporting systems
 
----
-
 # Future Improvements
 
 Planned enhancements include:
@@ -339,8 +295,6 @@ Planned enhancements include:
 * Team collaboration tools
 * Mobile application support
 
----
-
 # Development Notes
 
 This project follows:
@@ -350,8 +304,6 @@ This project follows:
 * Livewire reactive patterns
 * Laravel conventions
 * Modular dashboard design
-
----
 
 # Contributing
 
@@ -365,16 +317,12 @@ To contribute:
 4. Push updates
 5. Open a pull request
 
----
-
 # License
 
 This project is licensed under the MIT License.
-
----
 
 # Author
 
 AutoSocial Development Team
 
-Built with ❤️ using Laravel and Livewire.
+Built using Laravel and Livewire.
