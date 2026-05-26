@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('components.layouts.app')
 
 @section('title', 'AutoSocial - Social Media Automation on Autopilot')
 @section('description', 'Manage all your social platforms from one intelligent dashboard. AI-powered content creation, scheduling, and analytics for brands, agencies, and creators.')
@@ -23,7 +23,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <p class="text-center text-accent-500 text-sm font-medium mb-6">Trusted by 10,000+ brands and creators</p>
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-70">
-                {{-- Logo placeholders - replace with actual SVGs --}}
+                <!-- Logo placeholders - replace with actual SVGs -->
                 @foreach(['Brand1', 'Brand2', 'Brand3', 'Brand4', 'Brand5', 'Brand6'] as $brand)
                     <div class="flex justify-center">
                         <span class="text-accent-400 dark:text-slate-500 font-semibold">{{ $brand }}</span>

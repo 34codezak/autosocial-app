@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('components.layouts.app')
 
 @section('title', 'Pricing - AutoSocial')
 @section('description', 'Simple, transparent pricing for every stage of growth. Start free, scale as you grow.')
@@ -168,6 +168,7 @@
 @endsection
 
 @push('structured-data')
+@verbatim
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -186,4 +187,5 @@
   ]
 }
 </script>
-@endpush
+@endverbatim
+@endpus

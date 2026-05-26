@@ -11,7 +11,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // Bind services to container
+        $this->app->singleton(DashboardMetricsService::class, function($app) {
+            return new DashboardMetricsService();
+        });
     }
 
     /**
