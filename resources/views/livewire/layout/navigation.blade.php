@@ -24,18 +24,18 @@ new class extends Component
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
             
-            <!-- Logo -->
+            <!-- Platform Logo -->
             <a href="{{ route('home') }}" class="flex items-center space-x-2 group" aria-label="AutoSocial Home">
                 <div class="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-700 rounded-lg flex items-center justify-center">
-                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <img src="{{ asset('images/autos-logo.jpeg') }}" alt="Platform Logo" class="h-20 w-auto object-contain drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                    </svg>
+                    </img>
                 </div>
                 <span class="font-bold text-xl text-accent-800 dark:text-white group-hover:text-primary-600 transition-colors">
                     AutoSocial
                 </span>
             </a>
-
+            
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center space-x-8">
                 <a href="{{ route('product') }}" class="text-accent-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium">Product</a>

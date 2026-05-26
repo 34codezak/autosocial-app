@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('components.layouts.app')
 
 @section('title', 'Features - AutoSocial | Complete Social Media Toolkit')
 @section('description', 'Explore AutoSocial\'s powerful features: AI content creation, smart scheduling, team collaboration, analytics, and automation tools.')

@@ -147,7 +147,7 @@
             <h2 class="text-3xl font-bold text-center text-accent-800 dark:text-white mb-12">
                 Frequently Asked Questions
             </h2>
-            @livewire('marketing.faq-accordion')
+            @livewire('marketing.f-a-q-accordion')
         </div>
     </section>
 
@@ -188,4 +188,4 @@
 }
 </script>
 @endverbatim
-@endpus
+@endpush

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('components.layouts.app')
 
 @section('title', 'Interactive Demo - AutoSocial')
 @section('description', 'Experience AutoSocial before you sign up. Try our interactive demo dashboard with sample data.')
@@ -61,9 +61,8 @@
                 </p>
             </div>
 
-            @livewire('marketing.demo-carousel')
 
-            <div class="mt-12 grid md:grid-cols-3 gap-6">
+            <div class="mt-12 grid md:grid-cols-3 gap-6" livewire:marketing.demo>
                 @php
                     $highlights = [
                         ['title' => 'Drag & Drop Scheduling', 'desc' => 'Move posts between days with a simple drag. Changes save automatically.'],
