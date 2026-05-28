@@ -6,6 +6,6 @@ use Livewire\Component;
 
 class PostCalendar extends Component {
     public function render() {
-        return view('livewire.analytics-dashboard');
+        return view('livewire.analytics-dashboard')->layout('components.layouts.app');
     }
 }

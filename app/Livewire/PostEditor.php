@@ -69,6 +69,6 @@ class PostEditor extends Component
 
     public function render()
     {
-        return view('livewire.post-editor')->layout('layouts.app');
+        return view('livewire.post-editor')->layout('components.layouts.app');
     }
 }

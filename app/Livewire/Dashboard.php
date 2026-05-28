@@ -31,6 +31,10 @@ class Dashboard extends Component
         $this->refreshData();
 
         $data = $metricsService->getMetrics($user);
+        $this->metrics = $data['metrics'];
+        $this->platformBreakdown = $data['platformBreakdown'];
+
+        $this->trendData = $data['trendData'] ?? [];
 
         $this->userName = $user->name;
 

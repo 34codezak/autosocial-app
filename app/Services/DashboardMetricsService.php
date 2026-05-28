@@ -12,39 +12,46 @@ class DashboardMetricsService {
      */
     public function getMetrics($user): array
     {
+        $viewsTrend = $this->calculateTrend('views', $user);
+        $likesTrend = $this->calculateTrend('likes', $user);
+        $commentsTrend = $this->calculateTrend('comments', $user);
+        $sharesTrend = $this->calculateTrend('shares', $user);
+        
         return [
+            'metrics' => [
             'views' => [
                 'label' => 'Total Views',
                 'value' => $this->getTotalViews($user),
                 'icon' => 'eye',
-                'trend' => $this->calculateTrend('views', $user),      // Returns float
-                'trendUp' => $this->calculateTrend('views', $user) >= 0, // Calculated from trend
+                'trend' => $viewsTrend,      // Returns float
+                'trendUp' => $viewsTrend >= 0, // Calculated from trend
                 'trendData' => $this->getTrendData('views', $user),
             ],
             'likes' => [
                 'label' => 'Total Likes',
                 'value' => $this->getTotalLikes($user),
                 'icon' => 'heart',
-                'trend' => $this->calculateTrend('likes', $user),
-                'trendUp' => $this->calculateTrend('likes', $user) >= 0,
+                'trend' => $likesTrend,
+                'trendUp' => $likesTrend >= 0,
                 'trendData' => $this->getTrendData('likes', $user),
             ],
             'comments' => [
                 'label' => 'Comments',
                 'value' => $this->getTotalComments($user),
                 'icon' => 'chat',
-                'trend' => $this->calculateTrend('comments', $user),
-                'trendUp' => $this->calculateTrend('comments', $user) >= 0,
+                'trend' => $commentsTrend,
+                'trendUp' => $commentsTrend >= 0,
                 'trendData' => $this->getTrendData('comments', $user),
             ],
             'shares' => [
                 'label' => 'Shares',
                 'value' => $this->getTotalShares($user),
                 'icon' => 'share',
-                'trend' => $this->calculateTrend('shares', $user),
-                'trendUp' => $this->calculateTrend('shares', $user) >= 0,
+                'trend' => $sharesTrend,
+                'trendUp' => $sharesTrend >= 0,
                 'trendData' => $this->getTrendData('shares', $user),
             ],
+        ],
 
             'platformBreakdown' => $this->getPlatformBreakdown($user),
             'trendData' => $this->getTrendChartData($user),
