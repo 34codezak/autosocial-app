@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('components.layouts.app')
 
 @section('title', 'Accessibility - AutoSocial')
 @section('description', 'AutoSocial is committed to making social media management accessible for everyone. Learn about our accessibility features and commitments.')

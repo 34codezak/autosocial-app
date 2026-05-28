@@ -4,10 +4,8 @@ use Livewire\Volt\Volt;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Marketing\ContactPage;
 use App\Http\Controllers\{RegisterController, LoginController};
-use App\Http\Controllers\Auth\SocialAuthController;
-use App\Livewire\{PostEditor, PostCalendar, AnalyticsDashboard};
-use App\Services\DashboardMetricsService;
-
+use App\Http\Controllers\Auth\{SocialAuthController, AuthenticatedSessionController};
+use App\Livewire\{Dashboard, PostEditor, PostCalendar, AnalyticsDashboard, Workspace};
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Cache\RateLimiting\Limit;
@@ -45,9 +43,6 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 
     Route::get('/login', 'showForm')
         ->name('login');
-
-    Route::post('/login', 'handleForm')
-        ->name('login.store');
 });
 */
 
@@ -80,51 +75,7 @@ Route::get('/contact', ContactPage::class)
 Route::middleware(['auth', 'verified'])->group(function () {
     
     // Main dashboard (redirect to default tab)
-    Route::get('/dashboard', function () {
-        $user = auth()->user();
-        
-        // Calculate metrics (replace with your actual logic)
-        $totalViews = Post::where('user_id', $user->id)->sum('views') ?? 0;
-        $totalLikes = Interaction::where('user_id', $user->id)->where('type', 'like')->count() ?? 0;
-        $totalComments = Interaction::where('user_id', $user->id)->where('type', 'comment')->count() ?? 0;
-        $totalShares = Interaction::where('user_id', $user->id)->where('type', 'share')->count() ?? 0;
-        
-        return view('livewire.dashboard', [
-            'lastUpdated' => now()->format('M d, Y \a\t h:i A'),
-            'userName' => $user->name,
-            
-            'metrics' => [
-                'views' => [
-                    'label' => 'Total Views',
-                    'value' => number_format($totalViews),
-                    'icon' => 'eye',
-                    'trend' => '+12.5%',
-                    'trendUp' => true,
-                ],
-                'likes' => [
-                    'label' => 'Total Likes',
-                    'value' => number_format($totalLikes),
-                    'icon' => 'heart',
-                    'trend' => '+8.2%',
-                    'trendUp' => true,
-                ],
-                'comments' => [
-                    'label' => 'Comments',
-                    'value' => number_format($totalComments),
-                    'icon' => 'chat',
-                    'trend' => '-2.1%',
-                    'trendUp' => false,
-                ],
-                'shares' => [
-                    'label' => 'Shares',
-                    'value' => number_format($totalShares),
-                    'icon' => 'share',
-                    'trend' => '+24.3%',
-                    'trendUp' => true,
-                ],
-            ],
-        ]);
-    })->name('dashboard');
+    Route::get('/dashboard', Dashboard::class)->name('dashboard');
     // Dashboard sections (Livewire components)
     Route::prefix('dashboard')->name('dashboard.')->group(function () {
         Route::get('/editor', PostEditor::class)->name('editor');
@@ -136,7 +87,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('/profile', 'profile')->name('profile');
     
     // Workspace & services
-    Route::view('/workspace', 'workspace')->name('workspace');
+    Route::get('/workspace', Workspace::class)->name('workspace');
     Route::view('/services', 'services')->name('services');
     
     // Social auth connections

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('components.layouts.app')
 
 @section('title', 'FAQ - AutoSocial | Frequently Asked Questions')
 @section('description', 'Find answers to common questions about AutoSocial: pricing, features, security, billing, and getting started.')

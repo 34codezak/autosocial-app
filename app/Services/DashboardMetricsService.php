@@ -247,4 +247,25 @@ class DashboardMetricsService {
             default => 0.0,
         };
     }
+
+    /**
+     * Get trend data for metric rendering
+     * 
+     */
+
+     private function getTrendData(string $type, $user): array {
+        $days = 24;
+
+        return collect(range(1, $days))
+            ->map(function()use($type) {
+                return match($type) {
+                    'views' => rand(200, 1200),
+                    'likes' => rand(50, 400),
+                    'comments' => rand(10, 120),
+                    'share' => rand(20, 200),
+                    default => rand(10, 100),
+                };
+            })
+            ->toArray();
+     }
 }

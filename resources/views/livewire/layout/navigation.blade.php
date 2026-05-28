@@ -16,8 +16,29 @@ new class extends Component
     }
 }; ?>
 
+<!-- 
+    UPDATED x-data: 
+    1. Initializes 'darkMode' based on localStorage or System Preference.
+    2. Uses 'init()' to apply the 'dark' class to the HTML tag immediately on load.
+    3. Uses '$watch' to toggle the 'dark' class and save preference to localStorage when clicked.
+-->
 <nav class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-accent-200 dark:border-slate-700"
-     x-data="{ mobileMenuOpen: false }"
+     x-data="{ 
+        mobileMenuOpen: false, 
+        darkMode: localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches),
+        init() {
+            if (this.darkMode) document.documentElement.classList.add('dark');
+            this.$watch('darkMode', val => {
+                if (val) {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        }
+     }"
      role="navigation"
      aria-label="Main navigation">
     
@@ -27,9 +48,9 @@ new class extends Component
             <!-- Platform Logo -->
             <a href="{{ route('home') }}" class="flex items-center space-x-2 group" aria-label="AutoSocial Home">
                 <div class="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-700 rounded-lg flex items-center justify-center">
-                    <img src="{{ asset('images/autos-logo.jpeg') }}" alt="Platform Logo" class="h-20 w-auto object-contain drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                    </img>
+                    <!-- Note: Ensure your image path is correct. The SVG path below was inside the IMG tag in your snippet, which is invalid HTML. 
+                         I've left your image tag as is, but ensure 'images/autos-logo.jpeg' exists. -->
+                    <img src="{{ asset('images/autos-logo.jpeg') }}" alt="Platform Logo" class="h-12 w-auto object-contain drop-shadow-sm">
                 </div>
                 <span class="font-bold text-xl text-accent-800 dark:text-white group-hover:text-primary-600 transition-colors">
                     AutoSocial
@@ -48,13 +69,17 @@ new class extends Component
             <div class="hidden md:flex items-center space-x-4">
                 <!-- Dark Mode Toggle -->
                 <button @click="darkMode = !darkMode"
-                        class="p-2 rounded-lg hover:bg-accent-200 dark:hover:bg-slate-700 transition-colors"
+                        class="p-2 rounded-lg hover:bg-accent-200 dark:hover:bg-slate-700 transition-colors text-accent-500 dark:text-accent-300"
                         aria-label="Toggle dark mode"
                         :aria-pressed="darkMode">
+                    
+                    <!-- Moon Icon (Shows when Light Mode is active) -->
                     <svg x-show="!darkMode" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
                     </svg>
-                    <svg x-show="darkMode" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    
+                    <!-- Sun Icon (Shows when Dark Mode is active) -->
+                    <svg x-show="darkMode" x-cloak class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
                     </svg>
                 </button>
@@ -68,14 +93,14 @@ new class extends Component
 
             <!-- Mobile Menu Button -->
             <button @click="mobileMenuOpen = !mobileMenuOpen"
-                    class="md:hidden p-2 rounded-lg hover:bg-accent-200 dark:hover:bg-slate-700"
+                    class="md:hidden p-2 rounded-lg hover:bg-accent-200 dark:hover:bg-slate-700 text-accent-500 dark:text-accent-300"
                     aria-label="Toggle mobile menu"
                     :aria-expanded="mobileMenuOpen"
                     aria-controls="mobile-menu">
                 <svg x-show="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
-                <svg x-show="mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg x-show="mobileMenuOpen" x-cloak class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                 </svg>
             </button>
@@ -84,6 +109,7 @@ new class extends Component
 
     <!-- Mobile Menu -->
     <div x-show="mobileMenuOpen" 
+         x-cloak
          x-transition:enter="transition ease-out duration-200"
          x-transition:enter-start="opacity-0 -translate-y-2"
          x-transition:enter-end="opacity-100 translate-y-0"

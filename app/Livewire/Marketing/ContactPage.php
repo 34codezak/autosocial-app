@@ -17,7 +17,7 @@ class ContactPage extends Component
     public $message = '';
 
     public $success = false;
-    public $errors = [];
+    // public $errors = [];
 
     protected $rules = [
         'name' => 'required|string|min:2|max:100',

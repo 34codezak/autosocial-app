@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('components.layouts.app')
 
 @section('title', 'Integrations - AutoSocial | Connect Your Tools')
 @section('description', 'Connect AutoSocial with 50+ tools including Canva, Google Drive, Slack, Zapier, and more. Streamline your social media workflow.')
