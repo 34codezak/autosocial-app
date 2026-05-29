@@ -22,6 +22,10 @@ class extends Component
         Session::regenerate();
         $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
     }
+
+    public function render() {
+        return view('livewire.pages.auth.login');
+    }
 }
 
 ?>

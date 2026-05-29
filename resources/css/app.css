@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/**
+:root {
+    --color-primary: 249 115 22; /* orange-500 
+    --color-primary-hover: 234 88 12; /* orange-600 
+  }
+  .theme-blue {
+    --color-primary: 59 130 246; /* blue-500 
+    --color-primary-hover: 37 99 235; /* blue-600 
+  }
+
+**/

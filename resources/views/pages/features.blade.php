@@ -110,7 +110,7 @@
                 </div>
                 <div class="relative">
                     <div class="absolute -inset-4 bg-gradient-to-r from-primary-200 to-orange-200 dark:from-primary-900/30 dark:to-orange-900/30 rounded-3xl blur-2xl opacity-30"></div>
-                    <img src="{{ asset('images/integrations-grid.png') }}" 
+                    <img src="{{ asset('images/integrations.png') }}" 
                          alt="AutoSocial integrations dashboard"
                          class="relative rounded-2xl shadow-xl border border-accent-200 dark:border-slate-700"
                          loading="lazy">

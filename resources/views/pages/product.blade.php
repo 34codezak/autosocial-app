@@ -30,7 +30,7 @@
                 </div>
                 <div class="relative">
                     <div class="absolute -inset-4 bg-gradient-to-r from-primary-200 to-orange-200 dark:from-primary-900/30 dark:to-orange-900/30 rounded-3xl blur-2xl opacity-30"></div>
-                    <img src="{{ asset('images/product-dashboard.png') }}" 
+                    <img src="{{ asset('images/dashboard-analytics.png') }}" 
                          alt="AutoSocial dashboard showing content calendar and analytics"
                          class="relative rounded-2xl shadow-2xl border border-accent-200 dark:border-slate-700"
                          loading="lazy">
