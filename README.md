@@ -35,15 +35,13 @@ The platform is designed for:
 
 ## Multi-Platform Management
 
-Manage social media accounts across:
+Manage social media accounts from a centralized dashboard across:
 
 * Instagram
 * Facebook
 * TikTok
 * X (Twitter)
 * LinkedIn
-
-from a centralized dashboard.
 
 ## Real-Time Analytics Dashboard
 
