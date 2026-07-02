@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Features\Marketing;
+namespace App\Livewire;
 
 use Livewire\Component;
 
@@ -25,6 +25,6 @@ class Demo extends Component
     
     public function render()
     {
-        return view('livewire.features.marketing.demo');
+        return view('livewire.demo');
     }
 }

@@ -9,7 +9,7 @@ use App\Livewire\Pages\App\{
     AnalyticsDashboard
 };
 
-use App\Livewire\Features\{
+use App\Livewire\Pages\App\{
     PostEditor,
     PostCalendar
     // AnalyticsDashboard,

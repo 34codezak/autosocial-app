@@ -11,12 +11,16 @@ use App\Http\Controllers\Auth\{
 Route::middleware(['web', 'guest'])->group(function () {
 
     // Registration
-    Volt::route('/register', 'actions.auth.register')->name('register');
-    Route::post('/register', [RegisteredUserController::class, 'store'])->name('register.store');
+    Volt::route('/register', 'actions.auth.register')
+        ->name('register');
+    Route::post('/register', [RegisteredUserController::class, 'store'])
+        ->name('register.store');
 
     // Login
-    Volt::route('/login', 'actions.auth.login')->name('login');
-    Route::post('/login', [AuthenticatedSessionController::class, 'store'])->name('login.store');
+    Volt::route('/login', 'actions.auth.login')
+        ->name('login');
+    Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+        ->name('login.store');
 
     // Social Auth
     Route::get('/auth/{provider}/redirect', [SocialAuthController::class, 'redirect'])
@@ -36,11 +40,8 @@ Route::middleware(['web', 'auth'])->post('/logout', [AuthenticatedSessionControl
     ->name('logout');
 
 
-/*
 
 use App\Http\Controllers\Auth\VerifyEmailController;
-use Illuminate\Support\Facades\Route;
-use Livewire\Volt\Volt;
 use App\Http\Controllers\LoginController;
 
 Route::middleware(['web', 'guest'])->group(function () {
@@ -68,4 +69,3 @@ Route::middleware('auth')->group(function () {
     Volt::route('confirm-password', 'pages.auth.confirm-password')
         ->name('password.confirm');
 });
- */

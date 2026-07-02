@@ -23,7 +23,7 @@ class extends Component
         $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
     }
 
-    public function render() {
+    public function render(): mixed {
         return view('livewire.pages.auth.login');
     }
 }

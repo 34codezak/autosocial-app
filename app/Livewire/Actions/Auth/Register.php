@@ -2,10 +2,13 @@
 // app/Livewire/Actions/Auth/Register.php
 
 use Livewire\Volt\Component;
+use function Livewire\Volt\{layout};
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
+
+layout('components.layouts.guest');
 
 new class extends Component {
     public $name, $email, $password, $password_confirmation, $terms = false;
@@ -33,7 +36,7 @@ new class extends Component {
         return redirect()->route('app.dashboard');
     }
     
-    public function render() {
+    public function render(): mixed {
         return view('livewire.actions.auth.register');
     }
 };

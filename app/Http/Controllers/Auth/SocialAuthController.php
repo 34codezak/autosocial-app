@@ -14,10 +14,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Services\SocialOAuthService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\{Auth,  Log};
 
 
-class SocialAuthcontroller extends Controller
+class SocialAuthController extends Controller
 {
     public function __construct(protected SocialOAuthService $oauthService) {} 
 
@@ -38,18 +38,19 @@ class SocialAuthcontroller extends Controller
         $user = Auth::user();
         $teamId = $request->get('state'); // passed via OAuth state param
 
-        if(!$user || !$teamId || !$user->canManageTeam($teamId)) {
+        if (!$user || !$teamId || $user->currentTeam?->id !== (int) $teamId) {
             return redirect()->route('dashboard')
                 ->with('error', 'Unauthorized connection attempt');
         }
 
         try {
             $account = $this->oauthService->handleCallback($platform, $teamId, $request->all());
+            $displayName = data_get($account, 'display_name', data_get($account, 'name', 'Social account'));
 
             return redirect()->route('social-accounts.index')
-                ->with('success', "{$account->display_name} connected successfully!");
+                ->with('success', "{$displayName} connected successfully!");
         }catch(\Exception $e) {
-            \Log::error("Social OAuth callback failed: {$e->getMessage()}");
+            Log::error("Social OAuth callback failed: {$e->getMessage()}");
             return redirect()->route('social-accounts.index')
                 ->with('error', "Failed to connect {$platform}: " . $e->getMessage());
         }
